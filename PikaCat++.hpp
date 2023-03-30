@@ -1,19 +1,19 @@
-#pragma once//·ÀÖ¹¶à´Î°üº¬
+#pragma once//é˜²æ­¢å¤šæ¬¡åŒ…å«
 
-//Í·ÎÄ¼ş²¿·Ö
+//å¤´æ–‡ä»¶éƒ¨åˆ†
 #include <bits/stdc++.h>
 #include <any>
 #include <variant>
 
-//È«¾ÖÁ÷¶ÔÏó
+//å…¨å±€æµå¯¹è±¡
 std::fstream fio;
 std::wfstream wfio;
 std::stringstream sio;
 std::wstringstream wsio;
 
-//Ò»¡¢¸ß¾«¶ÈËã·¨
+//ä¸€ã€é«˜ç²¾åº¦ç®—æ³•
 
-//¸ß¾«¶È¼Ó·¨
+//é«˜ç²¾åº¦åŠ æ³•
 void add(int* a,int* b,int* sum,int len){
     for(int i=0;i<len;i++){
         sum[i]+=a[i]+b[i];
@@ -24,7 +24,7 @@ void add(int* a,int* b,int* sum,int len){
     }
 }
 
-//¸ß¾«¶È³Ë·¨
+//é«˜ç²¾åº¦ä¹˜æ³•
 void times(int* a,int *b,int* product,int lena,int lenb){
     for(int i=0;i<lenb;i++){
         for(int j=0;j<lena;j++){
@@ -37,7 +37,7 @@ void times(int* a,int *b,int* product,int lena,int lenb){
     }
 }
 
-//¸ß¾«¶ÈÈ¡Ä£
+//é«˜ç²¾åº¦å–æ¨¡
 int mod(int* a,int b,int len){
     int d=0;
     for(int i=0;i<len;i++){
@@ -47,18 +47,18 @@ int mod(int* a,int b,int len){
 }
 
 
-//¶ş¡¢¸÷ÖÖ³£ÓÃËã·¨¼¯ºÏ
+//äºŒã€å„ç§å¸¸ç”¨ç®—æ³•é›†åˆ
 
-//ËØÊıÉ¸Ñ¡·¨
+//ç´ æ•°ç­›é€‰æ³•
 auto primeSelection(size_t num)
 {
-    std::vector<bool> isPrime(++num,true);//ÏÈ¼ÙÉèËùÓĞÊı¶¼ÊÇËØÊı
-    isPrime[0]=isPrime[1]=false;//0ºÍ1¸ù¾İÊıÑ§ÅÅ³ı
-    for(size_t i=2;i<num;i++)//ÕÒÀïÃæ²»ÊÇµÄ
+    std::vector<bool> isPrime(++num,true);//å…ˆå‡è®¾æ‰€æœ‰æ•°éƒ½æ˜¯ç´ æ•°
+    isPrime[0]=isPrime[1]=false;//0å’Œ1æ ¹æ®æ•°å­¦æ’é™¤
+    for(size_t i=2;i<num;i++)//æ‰¾é‡Œé¢ä¸æ˜¯çš„
     {
-        if(isPrime[i])//ÕâÀï²»ÓÃÅĞ¶Ï·ÇËØÊı£¬ÒòÎª·ÇËØÊıÒ»¶¨¿ÉÒÔ·Ö½âÎª¶à¸öĞ¡ÓÚËüµÄÊıÏà³ËÕâÀï±ßÒ»¶¨°üº¬ÒÔÇ°µÄËØÊı
+        if(isPrime[i])//è¿™é‡Œä¸ç”¨åˆ¤æ–­éç´ æ•°ï¼Œå› ä¸ºéç´ æ•°ä¸€å®šå¯ä»¥åˆ†è§£ä¸ºå¤šä¸ªå°äºå®ƒçš„æ•°ç›¸ä¹˜è¿™é‡Œè¾¹ä¸€å®šåŒ…å«ä»¥å‰çš„ç´ æ•°
         {
-            for(size_t j=2*i;j<num;j+=i)//±¶Êı¹ØÏµµÄ¾ø¶Ô²»ÊÇËØÊı
+            for(size_t j=2*i;j<num;j+=i)//å€æ•°å…³ç³»çš„ç»å¯¹ä¸æ˜¯ç´ æ•°
             {
                 isPrime[j]=false;
             }
@@ -67,13 +67,13 @@ auto primeSelection(size_t num)
     return isPrime;
 }
 
-//¿ìËÙËØÊıÅĞ¶Ï
+//å¿«é€Ÿç´ æ•°åˆ¤æ–­
 bool isPrime(size_t n)
 {
-    if(n==1) return false;//1²»ÊÇËØÊı
-    if(n==2 || n==3) return true;//2ºÍ3¸ù¾İ¿ÆÑ§ÎªËØÊı
-    if(n%6!=1 && n%6!=5) return false;//Ê£ÓàµÄ²»ÊÇ6k-1»ò6k+1µÄ±¶Êı¾ø¶Ô²»ÊÇËØÊı
-    for(size_t i=5;i<=sqrt(n);i+=6)//¾ÍËãÊÇÒ²²»Ò»¶¨ÊÇËØÊıÅĞ¶ÏÄÜ·ñ±»Ğ¡ÓÚ×Ô¼ºµÄ6k-1»ò6k+1µÄÕûÊı±¶Õû³ı
+    if(n==1) return false;//1ä¸æ˜¯ç´ æ•°
+    if(n==2 || n==3) return true;//2å’Œ3æ ¹æ®ç§‘å­¦ä¸ºç´ æ•°
+    if(n%6!=1 && n%6!=5) return false;//å‰©ä½™çš„ä¸æ˜¯6k-1æˆ–6k+1çš„å€æ•°ç»å¯¹ä¸æ˜¯ç´ æ•°
+    for(size_t i=5;i<=sqrt(n);i+=6)//å°±ç®—æ˜¯ä¹Ÿä¸ä¸€å®šæ˜¯ç´ æ•°åˆ¤æ–­èƒ½å¦è¢«å°äºè‡ªå·±çš„6k-1æˆ–6k+1çš„æ•´æ•°å€æ•´é™¤
     {
         if(n%i==0||n%(i+2)==0) return false;
     }
@@ -81,7 +81,7 @@ bool isPrime(size_t n)
 
 }
 
-//¿ìËÙÊäÈë¹Ò
+//å¿«é€Ÿè¾“å…¥æŒ‚
 inline char myGetChar() {
     static char buf[1024], *p1 = buf, *p2 = buf;
     return (p1 == p2) &&
@@ -100,7 +100,7 @@ inline void readString(string& str){
     while (isalpha(ch)) {str += ch; ch = myGetChar();}
 }
 
-//¿ìËÙÃİËã·¨
+//å¿«é€Ÿå¹‚ç®—æ³•
 int fastPow(int base,size_t power){
     if((base==0)&&(power==0)) throw("You Can't do that!");
     int result=1;
@@ -112,7 +112,7 @@ int fastPow(int base,size_t power){
     return result;
 }
 
-//È¡²»ÖØ¸´Ëæ»úÊı
+//å–ä¸é‡å¤éšæœºæ•°
 void getRad(int number,int total)
 {
     std::vector<int> input;
@@ -137,32 +137,32 @@ void getRad(int number,int total)
     };
 }
 
-//ÉßĞÎÊä³ö
+//è›‡å½¢è¾“å‡º
 auto snakePrint(size_t height,size_t length){
-    std::vector<std::vector<size_t>> array(height,std::vector<size_t>(length));//´´½¨¶şÎ¬Êı×é
-    size_t top=0,bottom=height-1,left=0,right=length-1;//Éè¶¨±ß½ç
+    std::vector<std::vector<size_t>> array(height,std::vector<size_t>(length));//åˆ›å»ºäºŒç»´æ•°ç»„
+    size_t top=0,bottom=height-1,left=0,right=length-1;//è®¾å®šè¾¹ç•Œ
     for(size_t i=1;i<=length*height;){
-        for(size_t j=left;(j<=right)&&(i<=length*height);j++){//ÏòÓÒÊä³ö
+        for(size_t j=left;(j<=right)&&(i<=length*height);j++){//å‘å³è¾“å‡º
             array[top][j]=i++;
         }top++;
-        for(size_t j=top;(j<=bottom)&&(i<=length*height);j++){//ÏòÏÂÊä³ö
+        for(size_t j=top;(j<=bottom)&&(i<=length*height);j++){//å‘ä¸‹è¾“å‡º
             array[j][right]=i++;
         }right--;
-        for(int j=right;(j>=int(left))&&(i<=length*height);j--){//Ïò×óÊä³ö
+        for(int j=right;(j>=int(left))&&(i<=length*height);j--){//å‘å·¦è¾“å‡º
             array[bottom][j]=i++;
         }bottom--;
-        for(int j=bottom;(j>=int(top))&&(i<=length*height);j--){//ÏòÉÏÊä³ö
+        for(int j=bottom;(j>=int(top))&&(i<=length*height);j--){//å‘ä¸Šè¾“å‡º
             array[j][left]=i++;
         }left++;
     }
     return array;
 }
 
-//»ÊºóÎÊÌâ
+//çš‡åé—®é¢˜
 size_t nQueen(int queenNum=8,int boardNum=8,int now=0){
     static std::vector<std::pair<int,int>> onBoardQueen;
     static size_t count=0;
-    //µİ¹éÍË³öÌõ¼ş
+    //é€’å½’é€€å‡ºæ¡ä»¶
     if(onBoardQueen.size()==static_cast<size_t>(queenNum)){
         count++;
         onBoardQueen.pop_back();
@@ -175,12 +175,12 @@ size_t nQueen(int queenNum=8,int boardNum=8,int now=0){
         }else{
             bool flag=true;
             for(auto&i:onBoardQueen){
-                //Í¬Ò»ÁĞ£¬Í¬Ò»ĞĞÈ¥³ı
+                //åŒä¸€åˆ—ï¼ŒåŒä¸€è¡Œå»é™¤
                 if((now/boardNum==i.first)||(now%boardNum==i.second)){
                     flag=false;
                     break;
                 }
-                //Í¬Ò»Ğ±ÏßÒ²È¥³ı
+                //åŒä¸€æ–œçº¿ä¹Ÿå»é™¤
                 if(abs(now/boardNum-i.first)==abs(now%boardNum-i.second)){
                     flag=false;
                     break;
@@ -196,21 +196,21 @@ size_t nQueen(int queenNum=8,int boardNum=8,int now=0){
     return count;
 }
 
-//½âÊı¶À
+//è§£æ•°ç‹¬
 void sudoku(std::array<std::array<size_t,9>,9>& grid,size_t now=0){
-    if(grid[now/9][now%9]!=0){//Ìø¹ıÒÑÓĞ²¿·Ö
+    if(grid[now/9][now%9]!=0){//è·³è¿‡å·²æœ‰éƒ¨åˆ†
         sudoku(grid,now+1);return;
     }
-    //µü´ú½áÊøÌõ¼ş
+    //è¿­ä»£ç»“æŸæ¡ä»¶
     if(now==81) return;
     size_t maxNum=9;
     for(;(maxNum!=0)&&!grid[8][8];maxNum--){
         bool flag=true;
-        for(size_t i=0;i<9;i++){//¼ì²éĞĞÁĞ
+        for(size_t i=0;i<9;i++){//æ£€æŸ¥è¡Œåˆ—
             if(grid[now/9][i]==maxNum){flag=false;break;}
             if(grid[i][now%9]==maxNum){flag=false;break;}
         }
-        for(size_t i=now/9/3*3;(i<now/9/3*3+3)&&flag;i++)//¼ì²é¾Å¹¬¸ñ
+        for(size_t i=now/9/3*3;(i<now/9/3*3+3)&&flag;i++)//æ£€æŸ¥ä¹å®«æ ¼
             for(size_t j=now%9/3*3;(j<now%9/3*3+3)&&flag;j++)
                 if(grid[i][j]==maxNum){flag=false;break;}
         if(flag){
@@ -218,15 +218,15 @@ void sudoku(std::array<std::array<size_t,9>,9>& grid,size_t now=0){
             sudoku(grid,now+1);
         }
     }
-    if(maxNum==0&&!grid[8][8]){//»ØËİÇåÁã
+    if(maxNum==0&&!grid[8][8]){//å›æº¯æ¸…é›¶
         grid[now/9][now%9]=0;return;
     }
 }
 
-//´òÓ¡ÁâĞÎ
+//æ‰“å°è±å½¢
 auto printDiamond(size_t n){
     std::vector<std::string> diamond(n);
-    for(size_t i=0;i<n/2+1;i++){//¹¹ÔìÉÏ°ë²¿·Ö
+    for(size_t i=0;i<n/2+1;i++){//æ„é€ ä¸ŠåŠéƒ¨åˆ†
         for(size_t j=0;j<n/2-i;j++) diamond[i]+="  ";
         for(size_t j=0;j<2*i+1;j++) diamond[i]+="* ";
     }
@@ -235,14 +235,14 @@ auto printDiamond(size_t n){
     for(auto &i:diamond) std::cout<<i;
 }
 
-//´òÓ¡¿ÕĞÄÁâĞÎ
+//æ‰“å°ç©ºå¿ƒè±å½¢
 auto printHollowDiamond(size_t n){
     std::vector<std::string> hollowDiamond(n);
-    for(size_t i=0;i<n/2+1;i++){//Êä³ö×ó±ßµÄÒ»Ğ¡¿é
+    for(size_t i=0;i<n/2+1;i++){//è¾“å‡ºå·¦è¾¹çš„ä¸€å°å—
         for(size_t j=0;j<n/2-i;j++) hollowDiamond[i]+=" ";
         hollowDiamond[i]+="*";
     }
-    for(size_t i=0;i<n/2;i++){//Êä³öÊ£ÏÂµÄÒ»´ó¿é
+    for(size_t i=0;i<n/2;i++){//è¾“å‡ºå‰©ä¸‹çš„ä¸€å¤§å—
         for(size_t j=0;j<2*i+1;j++) hollowDiamond[i+1]+=" ";
         hollowDiamond[i+1]+="*";
     }
@@ -251,11 +251,11 @@ auto printHollowDiamond(size_t n){
     for(auto &i:hollowDiamond) std::cout<<i;
 }
 
-//´òÓ¡É³Â©
+//æ‰“å°æ²™æ¼
 auto printSandGlass(size_t n,std::string sign){
     size_t row=1,left=0;
-    for(;n>2*row*row-1;row++);//ËãĞĞÊı
-    if(n<2*row*row-1){row--;left=n-2*row*row+1;}//¼ÆËãÊ£ÏÂµÄ¸öÊı
+    for(;n>2*row*row-1;row++);//ç®—è¡Œæ•°
+    if(n<2*row*row-1){row--;left=n-2*row*row+1;}//è®¡ç®—å‰©ä¸‹çš„ä¸ªæ•°
     std::vector<std::string> sandGlass(2*row-1);
     for(size_t i=0;i<row;i++){
         for(size_t j=0;j<row-1-i;j++) sandGlass[i]+=" ";
@@ -267,14 +267,14 @@ auto printSandGlass(size_t n,std::string sign){
     std::cout<<left;
 }
 
-//´òÓ¡XĞÍ
+//æ‰“å°Xå‹
 auto printX(size_t n){
     std::vector<std::string> x(n);
-    for(size_t i=0;i<n/2+1;i++){//Êä³ö×ó±ßµÄÒ»Ğ¡¿é
+    for(size_t i=0;i<n/2+1;i++){//è¾“å‡ºå·¦è¾¹çš„ä¸€å°å—
         for(size_t j=0;j<n/2-i;j++) x[i]+=" ";
         x[i]+="*";
     }
-    for(size_t i=0;i<n/2;i++){//Êä³öÊ£ÏÂµÄÒ»´ó¿é
+    for(size_t i=0;i<n/2;i++){//è¾“å‡ºå‰©ä¸‹çš„ä¸€å¤§å—
         for(size_t j=0;j<2*i+1;j++) x[i+1]+=" ";
         x[i+1]+="*";
     }
@@ -284,7 +284,7 @@ auto printX(size_t n){
     for(auto &i:x) std::cout<<i;
 }
 
-//×î´ó´Î´óµÚÈı´ó
+//æœ€å¤§æ¬¡å¤§ç¬¬ä¸‰å¤§
 auto printBigThree(size_t n){
     if(n<3) std::cout<<"Invalid Input";
     std::map<int,int,std::greater<int>> m;
@@ -307,9 +307,9 @@ auto printBigThree(size_t n){
     std::cout<<m.begin()->first;
 }
 
-//Èı¡¢ÅÅĞòËã·¨
+//ä¸‰ã€æ’åºç®—æ³•
 
-// Ã°ÅİÅÅĞò·Çµİ¹é
+// å†’æ³¡æ’åºéé€’å½’
 void bubbleSort(vector<int> &arr) {
   for (size_t i = 0; i < size(arr) - 1; ++i) {
     for (size_t j = 0; j < size(arr) - i - 1; ++j) {
@@ -320,7 +320,7 @@ void bubbleSort(vector<int> &arr) {
   }
 }
 
-// Ã°ÅİÅÅĞòµİ¹é
+// å†’æ³¡æ’åºé€’å½’
 void bubbleSort(vector<int> &arr, size_t index = 0) {
   if (index == size(arr) - 1) {
     return;
@@ -333,12 +333,12 @@ void bubbleSort(vector<int> &arr, size_t index = 0) {
   bubbleSort(arr, index + 1);
 }
 
-//¼¦Î²¾ÆÅÅĞò
+//é¸¡å°¾é…’æ’åº
 template <typename T>
 void cocktailSort(std::vector<T>& input){
     while(1){
-        bool flag = true;//Ñ­»·½áÊøÌõ¼ş
-        for(size_t i=0;i<input.size()-1;i++){//´Ó×óÏòÓÒÃ°Åİ
+        bool flag = true;//å¾ªç¯ç»“æŸæ¡ä»¶
+        for(size_t i=0;i<input.size()-1;i++){//ä»å·¦å‘å³å†’æ³¡
             if(input[i]>input[i+1]){
                 swap(input[i],input[i+1]);
                 flag=false;
@@ -346,7 +346,7 @@ void cocktailSort(std::vector<T>& input){
         }
         if(flag) break;
         flag = true;
-        for(size_t i=input.size()-1;i>0;i--){//´ÓÓÒÏò×óÃ°Åİ
+        for(size_t i=input.size()-1;i>0;i--){//ä»å³å‘å·¦å†’æ³¡
             if(input[i]<input[i-1]){
                 swap(input[i],input[i-1]);
                 flag=false;
@@ -356,7 +356,7 @@ void cocktailSort(std::vector<T>& input){
     }
 }
 
-// Ñ¡ÔñÅÅĞò·Çµİ¹é
+// é€‰æ‹©æ’åºéé€’å½’
 void selectionSort(vector<int> &arr) {
   for (size_t i = 0; i < size(arr) - 1; ++i) {
     size_t minIndex = i;
@@ -369,7 +369,7 @@ void selectionSort(vector<int> &arr) {
   }
 }
 
-// Ñ¡ÔñÅÅĞòµİ¹é
+// é€‰æ‹©æ’åºé€’å½’
 void selectionSort(vector<int> &arr, size_t index = 0) {
   if (index == size(arr) - 1)
     return;
@@ -383,7 +383,7 @@ void selectionSort(vector<int> &arr, size_t index = 0) {
   selectionSort(arr, index + 1);
 }
 
-//²åÈëÅÅĞò·Çµİ¹é
+//æ’å…¥æ’åºéé€’å½’
 void insertionSort(vector<int> &arr) {
   for (size_t i = 1; i < size(arr); ++i) {
     int temp = arr[i], pos = i;
@@ -394,7 +394,7 @@ void insertionSort(vector<int> &arr) {
   }
 }
 
-//²åÈëÅÅĞòµİ¹é
+//æ’å…¥æ’åºé€’å½’
 void insertionSort(vector<int> &arr, size_t index = 1) {
   if (index == size(arr)) {
     return;
@@ -407,7 +407,7 @@ void insertionSort(vector<int> &arr, size_t index = 1) {
   insertionSort(arr, index + 1);
 }
 
-//Ï£¶ûÅÅĞò
+//å¸Œå°”æ’åº
 void shellSort(int arr[],int len){
     int increasement=len;
     int i,j,k;
@@ -429,7 +429,7 @@ void shellSort(int arr[],int len){
     }while(increasement > 1);
 }
 
-// ¿ìËÙÅÅĞòµİ¹é
+// å¿«é€Ÿæ’åºé€’å½’
 void quickSort(vector<int> &arr, int start, int end) {
   if (start >= end) return;
   int i = start - 1, j = end + 1, pivot = arr[(start + end) >> 1];
@@ -442,7 +442,7 @@ void quickSort(vector<int> &arr, int start, int end) {
   quickSort(arr, j + 1, end);
 }
 
-// ¿ìËÙÅÅĞò·Çµİ¹é
+// å¿«é€Ÿæ’åºéé€’å½’
 void quickSort(vector<int> &arr, int start, int end) {
   stack<int> s;
   s.emplace(end);
@@ -469,7 +469,7 @@ void quickSort(vector<int> &arr, int start, int end) {
   }
 }
 
-//¹é²¢ÅÅĞò
+//å½’å¹¶æ’åº
 void mergeSort(vector<int> &arr, int start, int end) {
   if (start >= end) return;
   int length = 0, mid = (start + end) >> 1;
@@ -486,7 +486,7 @@ void mergeSort(vector<int> &arr, int start, int end) {
   memcpy(&arr[start], &temp[0], size(temp) * 4);
 }
 
-// ¶ÑÅÅĞò
+// å †æ’åº
 void siftDown(vector<int> &arr, size_t index, size_t length) {
   size_t lchild = 2 * index + 1, rchild = 2 * index + 2, maxIndex = index;
   if (lchild < length and arr[lchild] > arr[maxIndex]) {
@@ -510,132 +510,132 @@ void heapSort(vector<int> &arr) {
   }
 }
 
-//¼ÆÊıÅÅĞò
+//è®¡æ•°æ’åº
 void countingSort(std::vector<int>& input){
     int offset=input[0],maxNum=input[0];
-    for(auto &i:input){//ÕÒµ½×î´óÖµºÍÆ«ÒÆÁ¿
+    for(auto &i:input){//æ‰¾åˆ°æœ€å¤§å€¼å’Œåç§»é‡
         if(i<offset) offset=i;
         if(i>maxNum) maxNum=i;
     }
-    std::vector<int> output[maxNum-offset+1];//¼ÆÊıÊı×é
-    for(auto& i:input) output[i-offset].push_back(i);//¼ÆÊı
+    std::vector<int> output[maxNum-offset+1];//è®¡æ•°æ•°ç»„
+    for(auto& i:input) output[i-offset].push_back(i);//è®¡æ•°
     input.clear();
-    for(auto& arr:output)//·ÅÈëÊı×é
+    for(auto& arr:output)//æ”¾å…¥æ•°ç»„
         for(auto& i:arr)
             input.push_back(i);
 }
 
-//Í°ÅÅĞò
+//æ¡¶æ’åº
 template <typename T>
 void bucketSort(std::vector<T>& input){
     T minNum=input[0],maxNum=input[0];
-    for(auto &i:input){//ÕÒµ½×î´óÖµºÍÆ«ÒÆÁ¿
+    for(auto &i:input){//æ‰¾åˆ°æœ€å¤§å€¼å’Œåç§»é‡
         if(i<minNum) minNum=i;
         if(i>maxNum) maxNum=i;
     }
-    std::vector<T> buckets[input.size()];//¶¨ÒåºÍÊäÈëÔªËØ¸öÊıÒ»ÑùµÄÍ°
-    double gap=double(maxNum-minNum)/(input.size()-1);//¼ÆËã¸÷Í°Ö®¼äµÄ²î¾à
-    //½«ÔªËØ·ÅÈëÍ°ÖĞ
+    std::vector<T> buckets[input.size()];//å®šä¹‰å’Œè¾“å…¥å…ƒç´ ä¸ªæ•°ä¸€æ ·çš„æ¡¶
+    double gap=double(maxNum-minNum)/(input.size()-1);//è®¡ç®—å„æ¡¶ä¹‹é—´çš„å·®è·
+    //å°†å…ƒç´ æ”¾å…¥æ¡¶ä¸­
     for(auto& i:input) buckets[size_t((i-minNum)/gap)].push_back(i);
     input.clear();
     for(auto& arr:buckets){
-        sort(arr.begin(),arr.end());//¶ÔÍ°½øĞĞÅÅĞò
+        sort(arr.begin(),arr.end());//å¯¹æ¡¶è¿›è¡Œæ’åº
         for(auto &i:arr)
             input.push_back(i);
     }
 }
 
-//»ùÊıÅÅĞò£¨ÕûÊıĞÍ£©
+//åŸºæ•°æ’åºï¼ˆæ•´æ•°å‹ï¼‰
 void radixSortForInt(std::vector<int>& input){
-    auto getNum=[](int num,size_t index){//»ñÈ¡¸÷¸öÊıÎ»ÉÏµÄÊı×Ö
+    auto getNum=[](int num,size_t index){//è·å–å„ä¸ªæ•°ä½ä¸Šçš„æ•°å­—
         std::stringstream s;std::string str;s<<num;s>>str;s.clear();
         if(index>=str.length()) return 0;
         reverse(str.begin(),str.end());
         return str[index]-48;
     };
     int maxNum=input[0];size_t count=0;
-    for(auto& i:input) if(i>maxNum) maxNum=i;//ÕÒ×î´óÊı
-    for(;maxNum!=0;maxNum/=10,count++);//¼ÆËã×î´óÊıÎ»Êı
-    for(size_t i=0;i<count;i++){//Ò»¹²ÒªÑ­»·¼¸´Î
+    for(auto& i:input) if(i>maxNum) maxNum=i;//æ‰¾æœ€å¤§æ•°
+    for(;maxNum!=0;maxNum/=10,count++);//è®¡ç®—æœ€å¤§æ•°ä½æ•°
+    for(size_t i=0;i<count;i++){//ä¸€å…±è¦å¾ªç¯å‡ æ¬¡
         int offset=getNum(input[0],i),maxNum=getNum(input[0],i);
-        for(auto &j:input){//ÕÒµ½×î´óÖµºÍÆ«ÒÆÁ¿
+        for(auto &j:input){//æ‰¾åˆ°æœ€å¤§å€¼å’Œåç§»é‡
             if(getNum(j,i)<offset) offset=getNum(j,i);
             if(getNum(j,i)>maxNum) maxNum=getNum(j,i);
         }
-        std::vector<int> output[maxNum-offset+1];//¼ÆÊıÊı×é
-        for(auto& j:input) output[getNum(j,i)-offset].push_back(j);//¼ÆÊı
+        std::vector<int> output[maxNum-offset+1];//è®¡æ•°æ•°ç»„
+        for(auto& j:input) output[getNum(j,i)-offset].push_back(j);//è®¡æ•°
         input.clear();
-        for(auto& arr:output)//·ÅÈëÊı×é
+        for(auto& arr:output)//æ”¾å…¥æ•°ç»„
             for(auto& j:arr)
                 input.push_back(j);
     }
 }
 
-//»ùÊıÅÅĞò£¨×Ö·û´®×ÖµäË³Ğò£©
+//åŸºæ•°æ’åºï¼ˆå­—ç¬¦ä¸²å­—å…¸é¡ºåºï¼‰
 void radixSortForString(std::vector<std::string>& input){
     size_t longest=0;
-    for(auto& i:input) if(i.length()>longest) longest=i.length();//ÕÒ×î³¤×Ö·û´®
-    auto getString=[&](std::string str,size_t index){//»ñÈ¡¸÷¸öÎ»ÖÃÉÏµÄ×Ö·û
-        while(str.length()<longest) str+='0';//²»×ãÔÚºóÃæ²¹0
-        reverse(str.begin(),str.end());return str[index];//·´×ª·µ»Ø
+    for(auto& i:input) if(i.length()>longest) longest=i.length();//æ‰¾æœ€é•¿å­—ç¬¦ä¸²
+    auto getString=[&](std::string str,size_t index){//è·å–å„ä¸ªä½ç½®ä¸Šçš„å­—ç¬¦
+        while(str.length()<longest) str+='0';//ä¸è¶³åœ¨åé¢è¡¥0
+        reverse(str.begin(),str.end());return str[index];//åè½¬è¿”å›
     };
-    for(size_t i=0;i<longest;i++){//Ò»¹²ÒªÑ­»·¼¸´Î
+    for(size_t i=0;i<longest;i++){//ä¸€å…±è¦å¾ªç¯å‡ æ¬¡
         int offset=getString(input[0],i),maxNum=getString(input[0],i);
-        for(auto &j:input){//ÕÒµ½×î´óÖµºÍÆ«ÒÆÁ¿
+        for(auto &j:input){//æ‰¾åˆ°æœ€å¤§å€¼å’Œåç§»é‡
             if(getString(j,i)<offset) offset=getString(j,i);
             if(getString(j,i)>maxNum) maxNum=getString(j,i);
         }
-        std::vector<std::string> output[maxNum-offset+1];//¼ÆÊıÊı×é
-        for(auto& j:input) output[getString(j,i)-offset].push_back(j);//¼ÆÊı
+        std::vector<std::string> output[maxNum-offset+1];//è®¡æ•°æ•°ç»„
+        for(auto& j:input) output[getString(j,i)-offset].push_back(j);//è®¡æ•°
         input.clear();
-        for(auto& arr:output)//·ÅÈëÊı×é
+        for(auto& arr:output)//æ”¾å…¥æ•°ç»„
             for(auto& j:arr)
                 input.push_back(j);
     }
 }
 
-//Êı¾İ½á¹¹Ëã·¨
-//´òÓ¡ËùÓĞÕ»ĞòÁĞ
+//æ•°æ®ç»“æ„ç®—æ³•
+//æ‰“å°æ‰€æœ‰æ ˆåºåˆ—
 void printAllSeq(vector<int>& seq,stack<int>& mid,vector<int>& last){
-    //Á½¸ö¶¼¿Õ¾ÍÊä³ö
+    //ä¸¤ä¸ªéƒ½ç©ºå°±è¾“å‡º
     if(seq.empty()&&mid.empty()){
         for(const auto& i: last) cout<<i<<" ";
         cout<<endl;
         return;
     }
-    //ÏÈ×öpush
+    //å…ˆåšpush
     if(!seq.empty()){
         mid.push(seq.back());
         seq.pop_back();
         printAllSeq(seq,mid,last);
-        //»ØÀ´Ê±Åª»ØÀ´
+        //å›æ¥æ—¶å¼„å›æ¥
         seq.emplace_back(mid.top());
         mid.pop();
     }
-    //ÔÙpop
+    //å†pop
     if(!mid.empty()){
         last.emplace_back(mid.top());
         mid.pop();
         printAllSeq(seq,mid,last);
-        //»ØÀ´Ê±Åª»ØÀ´
+        //å›æ¥æ—¶å¼„å›æ¥
         mid.push(last.back());
         last.pop_back();
     }
 }
 
-// ¼ìÑéÒ»¸öĞòÁĞÊÇ·ñÊÇºÏ·¨Õ»ĞòÁĞ
+// æ£€éªŒä¸€ä¸ªåºåˆ—æ˜¯å¦æ˜¯åˆæ³•æ ˆåºåˆ—
 bool checkSeq(vector<int> origin, const vector<int> &target) {
-  // ·­×ªÊ¹µÃÔ­Ê¼ĞòÁĞ±ä³ÉÕ»½á¹¹
+  // ç¿»è½¬ä½¿å¾—åŸå§‹åºåˆ—å˜æˆæ ˆç»“æ„
   reverse(begin(origin), end(origin));
-  // ÖĞ×ªÕ»
+  // ä¸­è½¬æ ˆ
   stack<int> s;
   for (const auto &i : target) {
-    // Èç¹ûÕ»¿Õ»òÕßÕ»¶¥ÔªËØ²»µÈÓÚtarget¶ÔÓ¦ÔªËØ¾ÍÈëÕ»
+    // å¦‚æœæ ˆç©ºæˆ–è€…æ ˆé¡¶å…ƒç´ ä¸ç­‰äºtargetå¯¹åº”å…ƒç´ å°±å…¥æ ˆ
     while ((s.empty() or s.top() not_eq i) and not origin.empty()) {
       s.emplace(origin.back());
       origin.pop_back();
     }
-    // µ½´ïÕâÀïËµÃ÷ÒªÃ´Õ»¶¥ÔªËØµÈÓÚtarget¶ÔÓ¦ÔªËØ£¬ÒªÃ´Ê§°ÜÁË
+    // åˆ°è¾¾è¿™é‡Œè¯´æ˜è¦ä¹ˆæ ˆé¡¶å…ƒç´ ç­‰äºtargetå¯¹åº”å…ƒç´ ï¼Œè¦ä¹ˆå¤±è´¥äº†
     if (s.top() not_eq i) {
       return false;
     } else {
@@ -664,19 +664,19 @@ vector<int> match(string text,string pattern){
     vector<int> matches;
     int i=0,j=0;
     while(true){
-        //Ö÷ÒªÆ¥ÅäÑ­»·
+        //ä¸»è¦åŒ¹é…å¾ªç¯
         while(i<int(text.length()) and j<int(pattern.length())){
-            //Èç¹ûÆ¥Åä¾ÍĞ¯ÊÖ¹²½ø£¬²»Æ¥Åä¾Í×ªµ½ÏÂÒ»¸öÎ»ÖÃ¼ÌĞøÆ¥Åä
+            //å¦‚æœåŒ¹é…å°±æºæ‰‹å…±è¿›ï¼Œä¸åŒ¹é…å°±è½¬åˆ°ä¸‹ä¸€ä¸ªä½ç½®ç»§ç»­åŒ¹é…
             if(j<0 or text.at(i)==pattern.at(j)) (++i,++j);
             else j=next.at(j);
         }
-        //Íê³ÉÒ»´ÎÆ¥ÅäºóÖØÖÃÎ»ÖÃ
+        //å®Œæˆä¸€æ¬¡åŒ¹é…åé‡ç½®ä½ç½®
         if(i-j<int(text.length()-pattern.length())){
             matches.emplace_back(i-j);
-            //´ÓÏÂÒ»¸öÎ»ÖÃ¿ªÊ¼Æ¥Åä
+            //ä»ä¸‹ä¸€ä¸ªä½ç½®å¼€å§‹åŒ¹é…
             i=i-j+1;j=0;
         }else{
-            //×ö×îºóµÄ¼ì²é
+            //åšæœ€åçš„æ£€æŸ¥
             string cutText{end(text)-pattern.length(),end(text)};
             if(cutText==pattern) matches.emplace_back(text.length()-pattern.length());
             break;
@@ -685,54 +685,54 @@ vector<int> match(string text,string pattern){
     return matches;
 }
 
-A*Ñ°Â·
+// A*å¯»è·¯
 struct Node{
     Node(){}
     Node(int x,int y,int cnt,int f,Node* parent):x(x),y(y),cnt(cnt),f(f),parent(parent){}
     bool operator<(const Node& rhs){return this->f<rhs.f;}
-    //±£´æµØÍ¼ÉÏµÄÎ»ÖÃºÍ¶ÔÓ¦µÄFÖµºÍ¾àÀë¿ªÊ¼Î»ÖÃµÄ²½Êıcnt
+    //ä¿å­˜åœ°å›¾ä¸Šçš„ä½ç½®å’Œå¯¹åº”çš„Få€¼å’Œè·ç¦»å¼€å§‹ä½ç½®çš„æ­¥æ•°cnt
     int x,y,cnt{0},f{0};
     Node* parent=nullptr;
 };
 list<pair<int,int>> AStarPathFinding(vector<vector<int>>& map,int startX,int startY,int endX,int endY){
-    //ÓÃÓÚ´æ·ÅÒÑ¾­±éÀú¹ıºÍ»¹Ã»±éÀú¹ıµÄ½áµã
+    //ç”¨äºå­˜æ”¾å·²ç»éå†è¿‡å’Œè¿˜æ²¡éå†è¿‡çš„ç»“ç‚¹
     list<Node> openList,closeList;
-    //´æ·Å·µ»ØÂ·¾¶µÄÊı×é
+    //å­˜æ”¾è¿”å›è·¯å¾„çš„æ•°ç»„
     list<pair<int,int>> ret;
-    //ÃÔ¹¬´óĞ¡Îª0»òÕß¿ªÊ¼Î»ÖÃµÈÓÚ½áÊøÎ»ÖÃÊ±Ö±½Ó·µ»Ø
+    //è¿·å®«å¤§å°ä¸º0æˆ–è€…å¼€å§‹ä½ç½®ç­‰äºç»“æŸä½ç½®æ—¶ç›´æ¥è¿”å›
     if(startX==endX and startY==endY){
         if(!map.at(startX).at(startY)) ret.emplace_front(startX,startY);
         return ret;
     }
-    //ÆÀ¹Àº¯Êı
+    //è¯„ä¼°å‡½æ•°
     auto f=[&](int x,int y){return abs(endX-x)+abs(endY-y);};
-    //¼ì²âº¯Êı
+    //æ£€æµ‹å‡½æ•°
     auto check=[&](Node& node){
         return !map.at(node.x).at(node.y)
                and !count_if(cbegin(closeList),cend(closeList),[&](const Node& tmp){
                        return tmp.x==node.x and tmp.y==node.y;
                    });};
-    //×°ÔØµÚÒ»¸ö½Úµã
+    //è£…è½½ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
     openList.emplace_front(startX,startY,0,f(startX,startY),nullptr);
-    //Ö÷Ñ­»·
+    //ä¸»å¾ªç¯
     while(!openList.empty()){
-        //È¡³öFÖµ×îĞ¡µÄ½Úµã
+        //å–å‡ºFå€¼æœ€å°çš„èŠ‚ç‚¹
         auto it=min_element(begin(openList),end(openList));
-        //´ÓopenListÖĞÒÆ³ı²¢¼ÓÈëcloseList
+        //ä»openListä¸­ç§»é™¤å¹¶åŠ å…¥closeList
         closeList.emplace_front(it->x,it->y,it->cnt,it->f,it->parent);
         Node& head=closeList.front();
         openList.erase(it);
-        //ÍË³öÌõ¼ş
+        //é€€å‡ºæ¡ä»¶
         if(head.x==endX and head.y==endY){
             const Node* node=&head;
-            //½«×î¶ÌÂ·¾¶·ÅÈë½á¹ûÊı×é
+            //å°†æœ€çŸ­è·¯å¾„æ”¾å…¥ç»“æœæ•°ç»„
             while(node){
                 ret.emplace_front(node->x,node->y);
                 node=node->parent;
             }
             break;
         }
-        //²é¿´ÉÏÏÂ×óÓÒÄÜ·ñ×ß¶¯£¬ÄÜ×ß¾ÍÈëopenList
+        //æŸ¥çœ‹ä¸Šä¸‹å·¦å³èƒ½å¦èµ°åŠ¨ï¼Œèƒ½èµ°å°±å…¥openList
         Node test(head.x-1,head.y,head.cnt+1,f(head.x-1,head.y)+head.cnt+1,&head);
         if(check(test)) openList.insert(begin(openList),test);
         test.x=head.x;
@@ -751,7 +751,7 @@ list<pair<int,int>> AStarPathFinding(vector<vector<int>>& map,int startX,int sta
     return ret;
 }
 
-// floyd¶àÔ´×î¶Ì¾àÀëËã·¨
+// floydå¤šæºæœ€çŸ­è·ç¦»ç®—æ³•
 struct Node {
   char mData;
   Node(char data) : mData{data} {}
@@ -759,18 +759,18 @@ struct Node {
 vector<Node> vertexs;
 vector<vector<uint64_t>> floydMaxshall(vector<vector<uint64_t>> adjacentMatrix) {
   vector<vector<uint64_t>> shortestPath{adjacentMatrix};
-  //×îÍâ²ã´ú±íÖĞ¼ä½Úµã
+  //æœ€å¤–å±‚ä»£è¡¨ä¸­é—´èŠ‚ç‚¹
   for (uint64_t mid = 0; mid < size(adjacentMatrix); ++mid) {
-    //´ÎÍâ²ã´ú±í´ÓÄÄ¸ö½Úµã³ö·¢
+    //æ¬¡å¤–å±‚ä»£è¡¨ä»å“ªä¸ªèŠ‚ç‚¹å‡ºå‘
     for (uint64_t from = 0; from < size(adjacentMatrix); ++from) {
-      //×îµ×²ã´ú±íµ½ÄÄ¸ö½Úµã³ö·¢
+      //æœ€åº•å±‚ä»£è¡¨åˆ°å“ªä¸ªèŠ‚ç‚¹å‡ºå‘
       for (uint64_t to = 0; to < size(adjacentMatrix); ++to) {
-        //Èç¹û²»¿É´ï¾Ícontinue
+        //å¦‚æœä¸å¯è¾¾å°±continue
         if (shortestPath[from][mid] == numeric_limits<uint64_t>::max() or
             shortestPath[mid][to] == numeric_limits<uint64_t>::max()) {
           continue;
         }
-        //Èç¹û¿É´ï£¬¸üĞÂ¾àÀë
+        //å¦‚æœå¯è¾¾ï¼Œæ›´æ–°è·ç¦»
         shortestPath[from][to] =
             min(shortestPath[from][to],
                 shortestPath[from][mid] + shortestPath[mid][to]);
@@ -780,25 +780,25 @@ vector<vector<uint64_t>> floydMaxshall(vector<vector<uint64_t>> adjacentMatrix) 
   return shortestPath;
 }
 
-// dijkstraµ¥Ô´×î¶ÌÂ·¾¶Ëã·¨
-// ÕâÀïµÄINFÆğÈç´ËÆæİâµÄÊı×ÖÔ­ÒòÊÇ·ÀÖ¹Ïà¼ÓÊ±Êı¾İÒç³ö
+// dijkstraå•æºæœ€çŸ­è·¯å¾„ç®—æ³•
+// è¿™é‡Œçš„INFèµ·å¦‚æ­¤å¥‡è‘©çš„æ•°å­—åŸå› æ˜¯é˜²æ­¢ç›¸åŠ æ—¶æ•°æ®æº¢å‡º
 constexpr int INF = 0x3F3F3F3F;
 vector<int> dijkstra(vector<vector<int>> &edge, int start) {
   using T = pair<int, int>;
   priority_queue<T, vector<T>, greater<>> queue;
-  // lowcost¼ÇÂ¼»¹Î´ÔÚ×îĞ¡Éú³ÉÊ÷ÖĞµÄ×îĞ¡¾àÀëµÄµã,parent¼ÇÂ¼Éú³ÉÊ÷
+  // lowcostè®°å½•è¿˜æœªåœ¨æœ€å°ç”Ÿæˆæ ‘ä¸­çš„æœ€å°è·ç¦»çš„ç‚¹,parentè®°å½•ç”Ÿæˆæ ‘
   vector<int> lowcost(size(edge), INF), parent(size(edge), -1);
   lowcost[start] = 0;
-  // Ê×½ÚµãÈëÊ÷
+  // é¦–èŠ‚ç‚¹å…¥æ ‘
   queue.emplace(0, start);
   while (not queue.empty()) {
-    //´Ó¶Ñ¶¥È¡³ö×îĞ¡Ôª
+    //ä»å †é¡¶å–å‡ºæœ€å°å…ƒ
     auto now = queue.top();
     queue.pop();
     if (lowcost[now.second] < now.first) {
       continue;
     }
-    // ÓÉÓÚĞÂ½Úµã½øÈëÉú³ÉÊ÷,ËùÒÔÒª¸üĞÂÓëĞÂ½ÚµãÁ¬½ÓµÄµãµÄ¾àÀë
+    // ç”±äºæ–°èŠ‚ç‚¹è¿›å…¥ç”Ÿæˆæ ‘,æ‰€ä»¥è¦æ›´æ–°ä¸æ–°èŠ‚ç‚¹è¿æ¥çš„ç‚¹çš„è·ç¦»
     for (size_t j = 0; j < size(edge); ++j) {
       if (lowcost[j] > lowcost[now.second] + edge[now.second][j]) {
         queue.emplace(lowcost[j] = lowcost[now.second] + edge[now.second][j], j);
@@ -809,25 +809,25 @@ vector<int> dijkstra(vector<vector<int>> &edge, int start) {
   return parent;
 }
 
-// prim×îĞ¡Éú³ÉÊ÷Ëã·¨
-// ÕâÀïµÄINFÆğÈç´ËÆæİâµÄÊı×ÖÔ­ÒòÊÇ·ÀÖ¹Ïà¼ÓÊ±Êı¾İÒç³ö
+// primæœ€å°ç”Ÿæˆæ ‘ç®—æ³•
+// è¿™é‡Œçš„INFèµ·å¦‚æ­¤å¥‡è‘©çš„æ•°å­—åŸå› æ˜¯é˜²æ­¢ç›¸åŠ æ—¶æ•°æ®æº¢å‡º
 constexpr int INF = 0x3F3F3F3F;
 vector<int> prim(vector<vector<int>> &edge, int start) {
   using T = pair<int, int>;
   priority_queue<T, vector<T>, greater<>> queue;
-  // lowcost¼ÇÂ¼»¹Î´ÔÚ×îĞ¡Éú³ÉÊ÷ÖĞµÄ×îĞ¡¾àÀëµÄµã,parent¼ÇÂ¼Éú³ÉÊ÷
+  // lowcostè®°å½•è¿˜æœªåœ¨æœ€å°ç”Ÿæˆæ ‘ä¸­çš„æœ€å°è·ç¦»çš„ç‚¹,parentè®°å½•ç”Ÿæˆæ ‘
   vector<int> lowcost(size(edge), INF), parent(size(edge), -1);
   lowcost[start] = 0;
-  // Ê×½ÚµãÈëÊ÷
+  // é¦–èŠ‚ç‚¹å…¥æ ‘
   queue.emplace(0, start);
   while (not queue.empty()) {
-    //´Ó¶Ñ¶¥È¡³ö×îĞ¡Ôª
+    //ä»å †é¡¶å–å‡ºæœ€å°å…ƒ
     auto now = queue.top();
     queue.pop();
     if (lowcost[now.second] < now.first) {
       continue;
     }
-    // ÓÉÓÚĞÂ½Úµã½øÈëÉú³ÉÊ÷,ËùÒÔÒª¸üĞÂÓëĞÂ½ÚµãÁ¬½ÓµÄµãµÄ¾àÀë
+    // ç”±äºæ–°èŠ‚ç‚¹è¿›å…¥ç”Ÿæˆæ ‘,æ‰€ä»¥è¦æ›´æ–°ä¸æ–°èŠ‚ç‚¹è¿æ¥çš„ç‚¹çš„è·ç¦»
     for (size_t j = 0; j < size(edge); ++j) {
       if (lowcost[j] > edge[now.second][j]) {
         queue.emplace(lowcost[j] = edge[now.second][j], j);
@@ -838,7 +838,7 @@ vector<int> prim(vector<vector<int>> &edge, int start) {
   return parent;
 }
 
-//ÍØÆËÅÅĞò
+//æ‹“æ‰‘æ’åº
 vector<int> topSort(vector<vector<int>> &edge, vector<int> &degree) {
   vector<int> res;
   queue<int> queue;
@@ -852,7 +852,7 @@ vector<int> topSort(vector<vector<int>> &edge, vector<int> &degree) {
   return res;
 }
 
-//Á´±í×ªÖÃµİ¹é
+//é“¾è¡¨è½¬ç½®é€’å½’
 struct Node {
   Node *next;
 };
@@ -863,7 +863,7 @@ void reverseList(Node *a = nullptr, Node *&b = head, Node *c = head->next) {
   reverseList(b, c, c->next);
 }
 
-//Á´±í×ªÖÃ·Çµİ¹é
+//é“¾è¡¨è½¬ç½®éé€’å½’
 struct Node {
   Node *next;
 };
@@ -879,7 +879,7 @@ void reverseList() {
   b->next = a;
 }
 
-// Éî¶ÈÓÅÏÈËÑË÷µİ¹é
+// æ·±åº¦ä¼˜å…ˆæœç´¢é€’å½’
 vector<vector<int>> edge;
 vector<char> nodes;
 vector<bool> visited;
@@ -890,7 +890,7 @@ void dfs(size_t now = 0) {
   for (const auto &i : edge[now]) dfs(i);
 }
 
-// Éî¶ÈÓÅÏÈËÑË÷·Çµİ¹é
+// æ·±åº¦ä¼˜å…ˆæœç´¢éé€’å½’
 void dfs(vector<vector<int>> &edge, vector<char> &nodes) {
   vector<bool> visited(size(edge), false);
   stack<int> s;
@@ -912,7 +912,7 @@ void dfs(vector<vector<int>> &edge, vector<char> &nodes) {
   }
 }
 
-// ¹ã¶ÈÓÅÏÈËÑË÷·Çµİ¹é
+// å¹¿åº¦ä¼˜å…ˆæœç´¢éé€’å½’
 void bfs(vector<vector<int>> &edge, vector<char> &nodes) {
   vector<bool> visited(size(edge), false);
   queue<int> q;
@@ -934,7 +934,7 @@ void bfs(vector<vector<int>> &edge, vector<char> &nodes) {
   }
 }
 
-// ¹ã¶ÈÓÅÏÈËÑË÷µİ¹é
+// å¹¿åº¦ä¼˜å…ˆæœç´¢é€’å½’
 vector<bool> visited;
 vector<vector<int>> edge;
 vector<char> nodes;
@@ -961,7 +961,7 @@ void bfs(size_t now = 0) {
   bfs(now + 1);
 }
 
-// ÃÔ¹¬¹ãËÑ
+// è¿·å®«å¹¿æœ
 constexpr int N = 10000;
 using T = pair<int, int>;
 T PARENT[N][N];
@@ -1004,7 +1004,7 @@ vector<T> pathFind(T target) {
   }
 }
 
-// ¾ØÕó¿ìËÙ×ªÖÃ
+// çŸ©é˜µå¿«é€Ÿè½¬ç½®
 constexpr int N = 10000;
 int n;
 int CNT[N];
@@ -1022,19 +1022,19 @@ void reverse() {
   for (const auto &i : TEMP) TABLE[POS[i.col]++] = i;
 }
 
-// ×î½ü¹«¹²×æÏÈ
+// æœ€è¿‘å…¬å…±ç¥–å…ˆ
 constexpr int N = 10000;
 bool FLAG[N];
-// ±àºÅ´Ó1¿ªÊ¼µÄÂú¶ş²æÊ÷
-// ´«ÈëµÄ²ÎÊı´ú±í¶ş²æÊ÷ÖĞµÄÁ½¸ö¶¥µã
-// º¯Êı·µ»Ø0´ú±íÃ»ÓĞ¹«¹²×æÏÈ
+// ç¼–å·ä»1å¼€å§‹çš„æ»¡äºŒå‰æ ‘
+// ä¼ å…¥çš„å‚æ•°ä»£è¡¨äºŒå‰æ ‘ä¸­çš„ä¸¤ä¸ªé¡¶ç‚¹
+// å‡½æ•°è¿”å›0ä»£è¡¨æ²¡æœ‰å…¬å…±ç¥–å…ˆ
 int lca(int a, int b) {
   while (a) FLAG[a /= 2] = true;
   while (!FLAG[b /= 2]);
   return b;
 }
 
-// ²¢²é¼¯Óë×îĞ¡Éú³ÉÊ÷
+// å¹¶æŸ¥é›†ä¸æœ€å°ç”Ÿæˆæ ‘
 constexpr int N = 1e5 + 10;
 int father[N];
 int find(int x) {return x != father[x] ? father[x] = find(father[x]) : x;}
@@ -1054,19 +1054,18 @@ auto kruskal() {
   return ret;
 }
 
-// sumÊÇ×ÜÈËÊı£¬valueÊÇÊıµ½µÚ¼¸¸ö³ö¾Ö£¬´Ó0¿ªÊ¼
+// sumæ˜¯æ€»äººæ•°ï¼Œvalueæ˜¯æ•°åˆ°ç¬¬å‡ ä¸ªå‡ºå±€ï¼Œä»0å¼€å§‹
 int josephus (int sum, int value)
 {
-  if (sum == 1) return (sum + value - 1) % sum ;
-  else return (josephus(sum - 1, value) + value) % sum;
+  return sum == 1 ? 0 : (josephus(sum - 1, value) + value) % sum;
 }
 
-// ¿ÉĞŞ¸ÄÓÅÏÈ¶ÓÁĞ
+// å¯ä¿®æ”¹ä¼˜å…ˆé˜Ÿåˆ—
 template <typename _Tp, typename _Compare = less<>>
 struct MutableQueue : public priority_queue<_Tp, vector<_Tp>, _Compare> {
   MutableQueue() = default;
   MutableQueue(_Compare _cmp)
       : priority_queue<_Tp, vector<_Tp>, _Compare>(_cmp) {}
-  //¸üĞÂÍê¶ÑÄÚÔªËØÊ±µ÷ÓÃ´Ëº¯Êı
+  //æ›´æ–°å®Œå †å†…å…ƒç´ æ—¶è°ƒç”¨æ­¤å‡½æ•°
   void update() { std::make_heap(begin(c), end(c), comp); }
 };
